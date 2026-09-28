@@ -1269,7 +1269,7 @@ export async function refreshCatalog() {
 
   // Try fetching from the API first (when backend is available)
   try {
-    const res = await fetch("/api/stones");
+    const res = await fetch("/data/stones.json");
     if (res.ok) {
       const loaded = await res.json();
       const normalized = Array.isArray(loaded)
