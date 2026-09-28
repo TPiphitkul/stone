@@ -81,6 +81,6 @@ try {
 
 export function resolveLiffEnvironmentConfig() {
   return {
-    liffId: '2011769476-CUTlYkog'
+    liffId: '2011769476-CUTIYkog'
   };
 }
