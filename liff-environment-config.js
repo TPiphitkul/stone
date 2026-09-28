@@ -20,6 +20,10 @@ export function invokeInitialLineAuthentication({
       // Diagnostic hooks must not influence the authentication operation.
     }
   };
+
+  console.log("redirectUri =", redirectUri);
+console.log("current =", window.location.href);
+
   const intentPersisted = persistIntent() !== false;
 
   if (isInClient) {
@@ -43,8 +47,9 @@ export function invokeInitialLineAuthentication({
   }
 
 const entryUrl = String(liffId || '').trim()
-  ? `https://miniapp.line.me/${String(liffId).trim()}`
+  ? `https://liff.line.me/${String(liffId).trim()}`
   : '';
+
 
 if (!entryUrl) {
   return {
