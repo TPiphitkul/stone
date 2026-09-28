@@ -21,8 +21,16 @@ export function invokeInitialLineAuthentication({
     }
   };
 
-console.log("redirectUri =", redirectUri);
-console.log("location =", window.location.href);
+try {
+    console.log("LIFF login start");
+    console.log("redirectUri =", redirectUri);
+    console.log("current =", window.location.href);
+
+    liff.login({ redirectUri });
+
+} catch (err) {
+    console.error("LOGIN ERROR", err);
+}
 alert(
   "redirectUri=" + redirectUri +
   "\nlocation=" + window.location.href
