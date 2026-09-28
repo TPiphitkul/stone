@@ -42,19 +42,45 @@ export function invokeInitialLineAuthentication({
     }
   }
 
-  const entryUrl = String(liffId || '').trim() ? `https://liff.line.me/${String(liffId).trim()}` : '';
-  if (!entryUrl) {
-    return { started: false, method: 'LIFF_ENTRY', invocation: 'NOT_AVAILABLE', intentPersisted, reason: 'F05E4_LIFF_ENTRY_URL_MISSING' };
-  }
-  try {
-    notify(onEntryNavigation);
-    navigate(entryUrl);
-    return { started: true, method: 'LIFF_ENTRY', invocation: 'STARTED', intentPersisted, reason: '' };
-  } catch (error) {
-    return { started: false, method: 'LIFF_ENTRY', invocation: 'THREW', intentPersisted, reason: 'F05E5_LIFF_ENTRY_THROWN', error };
-  }
+const entryUrl = String(liffId || '').trim()
+  ? `https://liff.line.me/${String(liffId).trim()}`
+  : '';
+
+if (!entryUrl) {
+  return {
+    started: false,
+    method: 'LIFF_ENTRY',
+    invocation: 'NOT_AVAILABLE',
+    intentPersisted,
+    reason: 'F05E4_LIFF_ENTRY_URL_MISSING'
+  };
+}
+
+try {
+  notify(onEntryNavigation);
+  navigate(entryUrl);
+
+  return {
+    started: true,
+    method: 'LIFF_ENTRY',
+    invocation: 'STARTED',
+    intentPersisted,
+    reason: ''
+  };
+} catch (error) {
+  return {
+    started: false,
+    method: 'LIFF_ENTRY',
+    invocation: 'THREW',
+    intentPersisted,
+    reason: 'F05E5_LIFF_ENTRY_THROWN',
+    error
+  };
+}
 }
 
 export function resolveLiffEnvironmentConfig() {
-   return {};
+return {
+liffId: '2011769476-CUTIYkog'
+};
 }
