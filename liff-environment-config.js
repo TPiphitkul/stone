@@ -21,8 +21,12 @@ export function invokeInitialLineAuthentication({
     }
   };
 
-  console.log("redirectUri =", redirectUri);
-console.log("current =", window.location.href);
+console.log("redirectUri =", redirectUri);
+console.log("location =", window.location.href);
+alert(
+  "redirectUri=" + redirectUri +
+  "\nlocation=" + window.location.href
+);
 
   const intentPersisted = persistIntent() !== false;
 
@@ -49,7 +53,6 @@ console.log("current =", window.location.href);
 const entryUrl = String(liffId || '').trim()
   ? `https://liff.line.me/${String(liffId).trim()}`
   : '';
-
 
 if (!entryUrl) {
   return {
