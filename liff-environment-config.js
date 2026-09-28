@@ -43,7 +43,7 @@ export function invokeInitialLineAuthentication({
   }
 
 const entryUrl = String(liffId || '').trim()
-  ? `https://liff.line.me/${String(liffId).trim()}`
+  ? `https://miniapp.line.me/${String(liffId).trim()}`
   : '';
 
 if (!entryUrl) {
@@ -80,7 +80,7 @@ try {
 }
 
 export function resolveLiffEnvironmentConfig() {
-return {
-liffId: '2011769476-CUTIYkog'
-};
+  return {
+    liffId: '2011769477-ouCWSG5E'
+  };
 }
